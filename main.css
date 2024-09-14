@@ -1,6 +1,12 @@
 * { box-sizing: border-box; }
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
 
+html, body {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  margin: 0; 
+  padding: 0;
+}
 
 body {
   width: 100%;
@@ -21,7 +27,6 @@ body {
 .left {
   overflow: hidden;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   justify-content: center;
   animation-name: left;
@@ -36,6 +41,10 @@ body {
   transition: all ease 1s;
 }
 
+.right img{
+  height: 100%;
+}
+
 .header h1 {
   color: white;
   background: rgb(33 182 146);
@@ -43,7 +52,6 @@ body {
   padding: 10px;
   border-radius: 20px;
   text-align: center;
-  width: 350px;
   margin-bottom: 20px;
 }
 
@@ -251,5 +259,84 @@ body {
   }
   100% {
     transform: translateY(-1400px); /* Goes up */
+  }
+}
+
+/* Ipad Pro & Ipad */
+@media only screen and (max-width: 1199px){
+  .container {
+    padding: 0 3vw;
+  }
+  .right {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+  }
+  .right img {
+    width: 40vw;  
+    height: auto; 
+  }
+  .header h2{
+    font-size: 25px;
+  }
+  .left{
+    padding: 0 2vw;
+  }
+}
+
+/* Iphone 15 pro max & Other Iphone Versions */
+@media only screen and (max-width: 767px){
+  .container {
+    flex-direction: column-reverse; 
+    align-items: center;
+    gap:0;
+  }
+  .header h2{
+    font-size: 18px;
+  }
+  .header h4{
+    font-size: 13px;
+  }
+  .left{
+    padding-bottom: 10vh;
+  }
+  .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Görselin bulunduğu bölümün genişliğini tam yap */
+  }
+  .right img {
+    width: 50%; 
+    height: auto; 
+  }
+ 
+  @keyframes left {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+  
+    100% {
+      opacity: 1;
+      width: 90%;
+    }
+  }
+}
+
+/* Galaxy S5 */
+@media only screen and (max-width: 361px){
+  .right img {
+    width: 35%; 
+    height: auto; 
+  }
+  .header h1{
+    font-size: 13px;
+  }
+  .header h2{
+    font-size: 15px;
+  }
+  .header h4{
+    font-size: 10px;
   }
 }
