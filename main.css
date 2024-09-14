@@ -1,0 +1,255 @@
+* { box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css?family=Rubik:400,500&display=swap');
+
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Rubik', sans-serif;
+  background: linear-gradient( rgb(41 135 165),rgb(54 178 217)); 
+}
+
+.container {
+  position: relative;
+  display: flex;
+  height: 100%;
+  width: 100%;
+  padding: 0 15vw;
+  gap: 2vw;
+}
+
+.left {
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  animation-name: left;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-delay: 0.5s;
+  padding: 0 8vw;
+}
+
+.right {
+  flex: 1;
+  transition: all ease 1s;
+}
+
+.header h1 {
+  color: white;
+  background: rgb(33 182 146);
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+  width: 350px;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  margin: 0;
+  color: white;
+  padding-bottom: 10px;
+  font-size: 35px;
+  text-align: justify;
+}
+
+.header h4 {
+  margin-top: 10px;
+  font-weight: normal;
+  font-size: 15px;
+  color: rgba(255,255,255,.4);
+  text-align: justify;
+}
+
+.form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form p {
+  text-align: right;
+}
+
+.form > p > a {
+  color: #000;
+  font-size: 14px;
+}
+
+.form-field {
+  height: 46px;
+  padding: 0 16px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Rubik', sans-serif;
+  outline: 0;
+  transition: .2s;
+  margin-top: 10px;
+  transition: all ease 0.3s;
+}
+
+.form-field:focus {
+  border-color: rgb(8 242 122);
+  box-shadow: rgb(8 242 122) 0px 2px 8px 0px;
+  color: rgb(33 182 146);
+}
+
+.form button {
+  position: relative;
+  padding: 16px 10px;
+  border: 0; 
+  background: rgb(8 242 122); 
+  border-radius: 3px;
+  margin-top: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: 'Rubik', sans-serif;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.form button span {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: rgb(26, 161, 130);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: all 0.5s ease;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+.form button:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.form button span:nth-child(1) {
+  --n: 1;
+}
+
+.form button span:nth-child(2) {
+  --n: 2;
+}
+
+.form button span:nth-child(3) {
+  --n: 3;
+}
+
+.form button span:nth-child(4) {
+  --n: 4;
+}
+
+.animation {
+  animation-name: move;
+  animation-duration: .4s;
+  animation-fill-mode: both;
+  animation-delay: 1.3s;
+}
+
+.a1 {
+  animation-delay: 1.3s;
+}
+
+.a2 {
+  animation-delay: 1.4s;
+}
+
+.a3 {
+  animation-delay: 1.5s;
+}
+
+.a4 {
+  animation-delay: 1.6s;
+}
+
+.a6 {
+  animation-delay: 1.8s;
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+
+  100% {
+    opacity: 1;
+    width: 50%;
+  }
+}
+
+/* Bubble Effect */
+
+.bubbles {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0; 
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: -150px; /* Bubble's starting position */
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  animation: bubble 10s infinite ease-in-out; 
+  opacity: 0.6;
+}
+
+/* First bubble type */
+.bubbles span:nth-child(3n+1) {
+  width: 40px;
+  height: 40px;
+  animation-duration: 10s; 
+  background-color: rgba(255, 255, 255, 0.2); 
+}
+
+/* Second bubble type */
+.bubbles span:nth-child(3n+2) {
+  width: 60px;
+  height: 60px;
+  animation-duration: 12s;
+  background-color: rgba(255, 255, 255, 0.25); 
+}
+
+/* Third bubble type */
+.bubbles span:nth-child(3n+3) {
+  width: 80px;
+  height: 80px;
+  animation-duration: 14s; 
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes bubble {
+  0% {
+    transform: translateY(0); /* Starting point */
+  }
+  100% {
+    transform: translateY(-1400px); /* Goes up */
+  }
+}
