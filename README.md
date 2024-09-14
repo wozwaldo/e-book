@@ -22,6 +22,7 @@ A frontend book landing page with a form and animated elements.
    git clone https://github.com/your-username/your-repository.git
    
 2. Navigate to the project directory:
+    ```bash
    cd your-repository
    
-4. Open the index.html file in a web browser.
+3. Open the index.html file in a web browser.
